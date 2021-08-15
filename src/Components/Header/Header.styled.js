@@ -18,14 +18,13 @@ export const InputSearch = styled.input`
   font-weight: 700;
   font-style: normal;
   font-size: 15px;
-
   background: #f5efef;
-  border-radius: 31px;
+  border-radius: 8px;
 `;
 
 export const ButtonSearch = styled.button`
   background: linear-gradient(180deg, #450246 0%, #432a43 100%);
-  border-radius: 26px;
+  border-radius: 8px;
   margin-left: 15px;
   width: 107px;
   height: 41px;

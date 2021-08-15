@@ -4,16 +4,17 @@ import {
   ContainerCard,
   ContainerInfoCard,
   DivImageCard,
-} from "./Cards.styled";
+  ImageHero,
+} from "./Card.styled";
 
-export default function Cards() {
+export default function Card(props) {
   return (
     <ContainerCard>
       <DivImageCard>
-        <img src={""} alt="image" />
+        <ImageHero src={props.image} alt="imagem" />
       </DivImageCard>
       <ContainerInfoCard>
-        <div>Nome - Poder</div>
+        <div>{props.name}</div>
         <ButtonDetails>Detalhes</ButtonDetails>
       </ContainerInfoCard>
     </ContainerCard>
