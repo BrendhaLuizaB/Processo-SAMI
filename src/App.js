@@ -1,37 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./Components/Header/Header";
 import Main from "./pages/Main/Main";
 import Footer from "./Components/Footer/Footer";
-// import { HeroesRequest } from "./Requests/heroesRequests";
-import axios from "axios";
-import { BASE_URL } from "./constants/url";
+import GlobalStateContext from "./Components/Global/GlobalStateContext";
+import Details from "./Components/Details/Details";
+import GlobalState from "./Components/Global/GlobalState";
 
 function App() {
   const [inputSearch, setInputSearch] = useState("");
-  const [heroes, setHeroes] = useState([]);
-  console.log("HEROES", heroes);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const { heroes, heroRequest, detailsModal, setDetailsModal } =
+    useContext(GlobalStateContext);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_URL}/search/A`)
-      .then((res) => {
-        console.log(res.data);
-        setHeroes(res.data.results);
-      })
-      .catch((err) => console.error(err));
+    heroRequest();
   }, []);
 
   return (
-    <div>
+    <>
       <Header inputSearch={inputSearch} setInputSearch={setInputSearch} />
+      {modalIsOpen ? (
+        <Details
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+          heroes={heroes}
+          detailsModal={detailsModal}
+          setDetailsModal={setDetailsModal}
+        />
+      ) : null}
       <Main
         inputSearch={inputSearch}
         setInputSearch={setInputSearch}
         heroes={heroes}
+        modalIsOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
       />
-      {/* <HeroesRequest setHeroes={setHeroes} /> */}
+
       <Footer />
-    </div>
+    </>
   );
 }
 

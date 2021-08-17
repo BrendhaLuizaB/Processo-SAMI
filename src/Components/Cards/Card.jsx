@@ -6,17 +6,29 @@ import {
   DivImageCard,
   ImageHero,
 } from "./Card.styled";
+import { useContext } from "react";
+import GlobalStateContext from "../Global/GlobalStateContext";
 
-export default function Card(props) {
+export default function Card({ hero, setModalIsOpen }) {
+  const { detailsRequest } = useContext(GlobalStateContext);
+
+  const details = (id) => {
+    setModalIsOpen(true);
+    detailsRequest(id);
+  };
   return (
-    <ContainerCard>
-      <DivImageCard>
-        <ImageHero src={props.image} alt="imagem" />
-      </DivImageCard>
-      <ContainerInfoCard>
-        <div>{props.name}</div>
-        <ButtonDetails>Detalhes</ButtonDetails>
-      </ContainerInfoCard>
-    </ContainerCard>
+    <div>
+      <ContainerCard>
+        <DivImageCard>
+          <ImageHero src={hero.image.url} alt="imagem" />
+        </DivImageCard>
+        <ContainerInfoCard>
+          <div>{hero.name}</div>
+          <ButtonDetails onClick={() => details(hero.id)}>
+            Detalhes
+          </ButtonDetails>
+        </ContainerInfoCard>
+      </ContainerCard>
+    </div>
   );
 }

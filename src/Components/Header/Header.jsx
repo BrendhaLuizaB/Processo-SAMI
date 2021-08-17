@@ -1,13 +1,17 @@
 import React from "react";
+// import { useState } from "react";
 import { ButtonSearch, ContainerHeader, InputSearch } from "./Header.styled";
 
 export default function Header(props) {
+  // const [inputSearch, setInputSearch] = useState("");
   return (
     <div>
       <ContainerHeader>
         <InputSearch
           placeholder="Nome/Poder"
-          onChange={(event) => props.setInputSearch(event.target.value)}
+          onChange={(event) => {
+            props.setInputSearch(event.target.value);
+          }}
         />
         <ButtonSearch>Buscar</ButtonSearch>
       </ContainerHeader>

@@ -29,6 +29,7 @@ export const DivImageCard = styled.div`
 export const ButtonDetails = styled.button`
   background: linear-gradient(180deg, #450246 0%, #432a43 100%);
   border-radius: 8px;
+  cursor: pointer;
   margin-left: 15px;
   width: 107px;
   height: 41px;
