@@ -11,7 +11,6 @@ const GlobalState = (props) => {
     axios
       .get(`${BASE_URL}/search/A`)
       .then((res) => {
-        console.log(res.data);
         setHeroes(res.data.results);
       })
       .catch((err) => console.error(err));
@@ -20,7 +19,6 @@ const GlobalState = (props) => {
     axios
       .get(`${BASE_URL}/${id}`)
       .then((res) => {
-        console.log(res.data);
         setDetailsModal(res.data);
       })
       .catch((err) => {

@@ -23,9 +23,6 @@ export default function Main(props) {
               setInputSearch={props.setInputSearch}
               setModalIsOpen={props.setModalIsOpen}
               modalIsOpen={props.modalIsOpen}
-              heroes={props.heroes}
-              name={hero.name}
-              image={hero.image.url}
               hero={hero}
             />
           );

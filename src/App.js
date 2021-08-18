@@ -18,7 +18,6 @@ function App() {
   return (
     <>
       <Header inputSearch={inputSearch} setInputSearch={setInputSearch} />
-
       {modalIsOpen ? (
         <Details
           modalIsOpen={modalIsOpen}
@@ -35,7 +34,6 @@ function App() {
         modalIsOpen={modalIsOpen}
         setModalIsOpen={setModalIsOpen}
       />
-
       <Footer />
     </>
   );

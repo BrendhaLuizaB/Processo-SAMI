@@ -4,6 +4,7 @@ export const ContainerModal = styled.div`
   background-color: rgb(233, 233, 233);
   display: flex;
   margin-left: 15%;
+  margin-top: 30px;
   flex-wrap: wrap;
   height: 80vh;
   position: fixed;
@@ -52,7 +53,6 @@ export const ContainerName = styled.div`
   margin-left: 35%;
 `;
 export const ContainerInfos = styled.div`
-  border: solid red 2px;
   margin-left: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -63,20 +63,17 @@ export const ContainerAppearance = styled.div`
   text-align: center;
   width: 25%;
   height: 20vh;
-  border: solid 2px orange;
 `;
 export const ContainerBiography = styled.div`
   width: 15%;
   text-align: center;
   margin-left: 30px;
   height: 40vh;
-  border: solid 2px black;
 `;
 export const ContainerPowestats = styled.div`
   text-align: center;
   margin-left: 20px;
   width: 25%;
-  border: 2px solid green;
 `;
 export const ContainerProgress = styled.div`
   height: 25px;
@@ -115,11 +112,9 @@ export const TitleWork = styled.h3`
 export const ContainerWork = styled.div`
   text-align: center;
   width: 100%;
-  border: solid 2px red;
 `;
 export const ContainerCloseModal = styled.div`
-  border: red solid 2px;
   height: 10vh;
   margin-left: 40%;
-  margin-top: 10px;
+  margin-top: 20px;
 `;
