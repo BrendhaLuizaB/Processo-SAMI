@@ -1,36 +1,86 @@
 import React from "react";
-import Cards from "../Cards/Card";
+import Close from "../../assets/x.svg";
+import { ProgressBar } from "../ProgressBar";
 import {
   CloseModal,
   ContainerAppearance,
   ContainerBiography,
+  ContainerCardModal,
   ContainerCloseModal,
   ContainerInfos,
   ContainerModal,
   ContainerName,
+  ContainerNameCardModal,
   ContainerNameCloseModal,
   ContainerPowestats,
+  ContainerProgress,
+  ContainerProgressDone,
   ContainerWork,
+  DivImgModal,
+  ImgHeroModal,
+  TitleAppearance,
+  TitleBiography,
+  TitlePowerStats,
+  TitleWork,
 } from "./Details.styled";
 
 export default function Details(props) {
   return (
     <div>
       <ContainerModal>
-        <ContainerNameCloseModal>
-          <ContainerName>
-            <h1>{props.detailsModal.name}</h1>
-          </ContainerName>
-          <ContainerCloseModal>
-            <CloseModal onClick={() => props.setModalIsOpen(false)}>
-              X
-            </CloseModal>
-          </ContainerCloseModal>
-        </ContainerNameCloseModal>
-        <div>{props.detailsModal.image.url}</div>
+        <ContainerName>
+          <h1>{props.detailsModal.name}</h1>
+        </ContainerName>
+        <ContainerCloseModal>
+          <CloseModal src={Close} onClick={() => props.setModalIsOpen(false)}>
+            X
+          </CloseModal>
+        </ContainerCloseModal>
         <ContainerInfos>
+          <ContainerCardModal>
+            <DivImgModal>
+              <ImgHeroModal src={props.detailsModal.image?.url} alt="imagem" />
+            </DivImgModal>
+            <ContainerNameCardModal>
+              <div>{props.detailsModal.name}</div>
+            </ContainerNameCardModal>
+          </ContainerCardModal>
+
+          <ContainerPowestats className="POWESTATS">
+            <TitlePowerStats>Habilidades</TitlePowerStats>
+            <p>
+              <strong>
+                Combat:{" "}
+                <ProgressBar done={props.detailsModal.powerstats?.combat} />
+              </strong>
+            </p>
+            <p>
+              <strong>
+                Durability:{" "}
+                <ProgressBar
+                  done={props.detailsModal.powerstats?.durability}
+                ></ProgressBar>
+              </strong>
+            </p>
+            <p>
+              <strong>Intelligence: </strong>
+              <ProgressBar done={props.detailsModal.powerstats?.intelligence} />
+            </p>
+            <p>
+              <strong>Power: </strong>
+              <ProgressBar done={props.detailsModal.powerstats?.power} />
+            </p>
+            <p>
+              <strong>Speed: </strong>
+              <ProgressBar done={props.detailsModal.powerstats?.speed} />
+            </p>
+            <p>
+              <strong>Strength: </strong>
+              <ProgressBar done={props.detailsModal.powerstats?.strength} />
+            </p>{" "}
+          </ContainerPowestats>
           <ContainerAppearance className="APARENCIA">
-            <h3>Aparência</h3>
+            <TitleAppearance>Aparência</TitleAppearance>
             <p>
               <strong>Eye color: </strong>
               {props.detailsModal.appearance?.["eye-color"]}
@@ -40,10 +90,18 @@ export default function Details(props) {
             </p>
             <p>
               <strong>Race:</strong> {props.detailsModal.appearance?.race}
-            </p>
+            </p>{" "}
+            <br />
+            <ContainerWork className="WORK">
+              <TitleWork>Trabalho</TitleWork>
+              <p>
+                <strong>Occupation:</strong>{" "}
+              </p>
+              <p>{props.detailsModal.work?.occupation}</p>
+            </ContainerWork>
           </ContainerAppearance>
           <ContainerBiography className="BIOGRAFIA">
-            <h3>Biografia</h3>
+            <TitleBiography>Biografia</TitleBiography>
             <p>
               <strong>Aliases:</strong>{" "}
             </p>
@@ -65,43 +123,9 @@ export default function Details(props) {
             </p>
             <p>{props.detailsModal.biography?.publisher}</p>
           </ContainerBiography>
-          <ContainerPowestats className="POWESTATS">
-            <h3>Super poderes</h3>
-            <p>
-              <strong>Combat: </strong>
-              {props.detailsModal.powerstats?.combat}
-            </p>
-            <p>
-              <strong>Durability: </strong>
-              {props.detailsModal.powerstats?.durability}
-            </p>
-            <p>
-              <strong>Intelligence: </strong>
-              {props.detailsModal.powerstats?.intelligence}
-            </p>
-            <p>
-              <strong>Power: </strong>
-              {props.detailsModal.powerstats?.power}
-            </p>
-            <p>
-              <strong>Speed: </strong>
-              {props.detailsModal.powerstats?.speed}
-            </p>
-            <p>
-              <strong>Strength: </strong>
-              {props.detailsModal.powerstats?.strength}
-            </p>
-          </ContainerPowestats>
-          <ContainerWork className="WORK">
-            <h3>Trabalho</h3>
-            <p>
-              <strong>Occupation:</strong>{" "}
-            </p>
-            <p>{props.detailsModal.work?.occupation}</p>
-          </ContainerWork>
         </ContainerInfos>
       </ContainerModal>
     </div>
   );
 }
-// background-color: rgb(233, 233, 233);
+// background-color: rgb(188, 135, 238);

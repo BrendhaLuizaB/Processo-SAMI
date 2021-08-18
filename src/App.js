@@ -4,7 +4,6 @@ import Main from "./pages/Main/Main";
 import Footer from "./Components/Footer/Footer";
 import GlobalStateContext from "./Components/Global/GlobalStateContext";
 import Details from "./Components/Details/Details";
-import GlobalState from "./Components/Global/GlobalState";
 
 function App() {
   const [inputSearch, setInputSearch] = useState("");
@@ -19,6 +18,7 @@ function App() {
   return (
     <>
       <Header inputSearch={inputSearch} setInputSearch={setInputSearch} />
+
       {modalIsOpen ? (
         <Details
           modalIsOpen={modalIsOpen}
